@@ -32,6 +32,16 @@ public class NoticeDao {
 	
 		return sqlSessionTemplate.selectOne("noticeMapper.selectOne",nId);
 	}
+
+	public int updateNotice(Notice n) {
+		
+		return sqlSessionTemplate.update("noticeMapper.updateNotice",n);
+	}
+
+	public int deleteNotice(int nId) {
+		
+		return sqlSessionTemplate.delete("noticeMapper.deleteNotice",nId);
+	}
 	
 	
 }

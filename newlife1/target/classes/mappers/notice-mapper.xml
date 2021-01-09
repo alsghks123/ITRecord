@@ -36,6 +36,17 @@
 			, #{filePath}
 		)
 	</insert>
+	<update id ="updateNotice" parameterType="Notice">
+	UPDATE NOTICE
+	SET NCONTENT=#{nContent}
+		,FILE_PATH =#{filePath}
+	WHERE NID=#{nId}
 	
+	</update>
 
+	<delete id="deleteNotice" parameterType="_int">
+		DELETE FROM NOTICE
+		WHERE NID=#{nId}
+	</delete>
+	
 </mapper>

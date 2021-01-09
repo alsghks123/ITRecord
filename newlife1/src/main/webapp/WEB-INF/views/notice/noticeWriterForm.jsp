@@ -39,15 +39,18 @@ $(function(){
         fCreator: "createSEditor2"
     });
     
+  
     //저장버튼 클릭시 form 전송
     $("#save").click(function(){
         oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
         $("#frm").submit();
-    });    
+    });
+    
+    
 });
 
 
-  
+ 
  
 </script>
 
@@ -75,17 +78,13 @@ $(function(){
 				<td>내용</td>
 				<td>
 			 <textarea rows="10" cols="30" id="ir1" name="nContent" style="width:800px; height:350p"></textarea>
-
-
-
-
-
 				</td>
 			</tr>
 			<tr>
 				<td>첨부파일</td>
 				<td>
-					<input type="file" name="nuploadFile">
+					
+					<input type='file' name='nuploadFile' accept='image/jpeg,image/gif,image/png' >
 				</td>	
 			</tr>
 			<tr>

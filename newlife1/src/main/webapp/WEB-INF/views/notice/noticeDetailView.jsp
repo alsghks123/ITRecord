@@ -35,7 +35,7 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td>${notice.nContent }</td>
+			<td>${notice.nContent}</td>
 		</tr>
 		
 			<c:if test="${!empty notice.filePath }">
@@ -50,7 +50,7 @@
 			</tr>		
 			</c:if>			
 			<c:url var ="nupView" value="nupView.do">
-				<c:param name ="nId" value=${notice.nId }>
+				<c:param name ="nId" value="${notice.nId }">
 			</c:param>	
 			</c:url>
 			<c:url var ="ndelete" value ="ndelete.do">

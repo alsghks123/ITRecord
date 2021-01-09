@@ -82,6 +82,64 @@ public class NoticeController {
 		
 	
 	}
+@RequestMapping(value="nupView.do")
+public String noticeUpdateView(int nId,Model model) {
+	model.addAttribute("notice",nService.selectOne(nId));
+	
+	return "notice/noticeUpdateView";
+}
+
+@RequestMapping(value="nupdate.do",method=RequestMethod.POST)
+public String noitceUpdate(HttpServletRequest request, Notice n,
+							@RequestParam(value="reuploadFile", required=false)
+							MultipartFile reuploadFile) {
+	if(!reuploadFile.getOriginalFilename().contentEquals("")) {
+		if(n.getFilePath() != null) {
+			deleteFile(n.getFilePath(), request);
+		}
+	}
+	String savePath = saveFile(reuploadFile, request);
+	
+	if(savePath != null) {
+		n.setFilePath(reuploadFile.getOriginalFilename());
+	}
+	
+	int result =nService.updateNotice(n);
+	
+	if(result>0) {
+		return "redirect:nlist.do";
+	}else {
+		throw new NoticeException("공지사항 수정 실패!");
+	}
+}
+
+@RequestMapping("ndelete.do")
+public String noticeDelete(int nId, HttpServletRequest request) {
+	Notice n=nService.selectOne(nId);
+	
+	if(n.getFilePath() != null) {
+		deleteFile(n.getFilePath(), request);
+	}
+	
+	int result = nService.deleteNotice(nId);
+	if(result>0) {
+		return "redirect:nlist.do";
+		
+	}else {
+		throw new NoticeException("공지사항 삭제 실패");
+	}
+}
+	
+private void deleteFile(String fileName, HttpServletRequest request) {
+	String root = 
+		request.getSession().getServletContext().getRealPath("resources");
+	String savePath = root + "\\nuploadFiles";
+	
+	File f = new File(savePath + "\\" + fileName);
+	if(f.exists()) {
+		f.delete();
+	}
+}
 	private String saveFile(MultipartFile file, HttpServletRequest request) {
 		
 		String root = request.getSession().getServletContext().getRealPath("resources");
