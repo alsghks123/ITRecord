@@ -66,6 +66,27 @@
 			  </tr>	
 			</c:if>	
 	</table>
+	
+		<table align ="center" width="800" border ="1" id ="tb">
+			<tr>
+				<td><textarea cols="55" rows="3" id ="rContent"></textarea>
+				</td>
+				<td>
+					<button id ="rSubmit">등록하기</button>	
+			</tr>
+		</table>
+		
+		<table align ="center" width= "800" border="1" id ="tb2">
+		<thead>
+				<tr>
+					<td colspan="2"><b id="rCount"></b></td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+
+		</table>
+
 	<br><br><br><br>
 </body>
 </html>

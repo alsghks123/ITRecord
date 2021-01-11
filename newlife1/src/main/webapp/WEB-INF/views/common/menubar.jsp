@@ -8,27 +8,53 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
-	.nav{
-		width:780px;
-		margin-left:auto;
-		margin-right:auto;
-	}
-	.menu{
-		display:inline-block;
-		background:yellowgreen;
-		text-align:center;
-		line-height:50px;
-		width:150px;
-		height:50px;
-		margin-left:20px;
-		margin-right:20px;
-		border-radius:20px;
-	}
-	.menu:hover{
-		background:orangered;
-		color:white;
-		cursor:pointer;
-	}
+
+.nav {
+
+margin:auto;
+
+width:800px;
+}
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    align:center;
+    width:160px;
+    height:50px;
+    margin:auto;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
 	body{
 		background-image:url("resources/images/background.jpg");
 	}
@@ -89,17 +115,27 @@
 	<!-- 회원 탈퇴까지 진행하면 공지사항부터 착착 진행하자~ -->
 	<c:url var="nlist" value="nlist.do"/>
 	<c:url var="blist" value="blist.do"/>
-
+	<c:url var ="home" value ="home.do"/>
 
 	 <div class="menubar">
 	 	<div class="nav">
-	 		<div class="menu"><a href="home.do">HOME</a></div>
-	 		<div class="menu"><a href="${nlist}">공지사항</a></div>
-	 		<div class="menu"><a href="${blist}">게시판</a></div>
-	 		<div class="menu"><a href="#">etc</a></div>
+	 		<div class="dropdown">
+	 		     <button class="dropbtn" onclick ="location.href='${home}'">Home</button>
+	 		     </div>
+	 		<div class="dropdown">
+	 		     <button class="dropbtn" onclick ="location.href='${nlist}'">공지사항</button>
+	 		     </div>
+	 		   <div class="dropdown">
+	 		     <button class="dropbtn">게시판</button>
+	 		   <div class="dropdown-content">
+	 		   <a href="${blist}">해외축구</a></div>
+	 		   </div>
+	 		<div class="dropdown">
+	 		     <button class="dropbtn" onclick ="location.href='${home}'">etc</button>
+	 		     </div>
 	 	</div>
 	 </div>
-
+<br>
 
 
 </body>

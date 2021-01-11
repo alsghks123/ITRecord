@@ -1,8 +1,6 @@
 package com.mycomp.spring1.common;
 
-
-
-
+import com.mycomp.spring1.board.model.vo.PageInfo;
 
 public class Pagination {
 	public static PageInfo getPageInfo(int currentPage, int listCount) {

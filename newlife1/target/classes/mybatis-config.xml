@@ -10,11 +10,17 @@
 					alias="Member"/>
 		<typeAlias type ="com.mycomp.spring1.notice.model.vo.Notice"
 					alias ="Notice"/>
+		<typeAlias type="com.mycomp.spring1.board.model.vo.Board"
+					alias ="Board"/>
+	<typeAlias type="com.mycomp.spring1.board.model.vo.Reply"
+					alias ="Reply"/>					
+					
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="/mappers/member-mapper.xml"/>
 		<mapper resource ="/mappers/notice-mapper.xml"/>
+		<mapper resource ="/mappers/board-mapper.xml"/>
 	</mappers>
 
 
