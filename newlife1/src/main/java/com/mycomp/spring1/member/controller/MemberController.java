@@ -56,6 +56,7 @@ public class MemberController {
 			throw new MemberException("로그인 실패");
 		}
 	}
+	
 @RequestMapping(value="logout.do",method=RequestMethod.GET)
 public String memberLogout(SessionStatus status) {
 	status.setComplete();

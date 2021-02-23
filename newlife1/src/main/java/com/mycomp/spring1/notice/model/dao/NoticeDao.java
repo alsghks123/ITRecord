@@ -42,6 +42,11 @@ public class NoticeDao {
 		
 		return sqlSessionTemplate.delete("noticeMapper.deleteNotice",nId);
 	}
+
+	public ArrayList<Notice> selectFourNotice() {
+	
+		return (ArrayList)sqlSessionTemplate.selectList("noticeMapper.selectFourNotice");
+	}
 	
 	
 }

@@ -49,4 +49,8 @@
 		WHERE NID=#{nId}
 	</delete>
 	
+	<select id="selectFourNotice" resultMap="noticeResultSet">
+	SELECT *
+	FROM NOTICE
+	</select>
 </mapper>

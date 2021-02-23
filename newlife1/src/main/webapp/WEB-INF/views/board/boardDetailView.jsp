@@ -69,7 +69,7 @@
 			<tr>
 				<td colspan="2" align="center">
 				
-				 
+				 -
 				 <input type ="button" onclick="location.href ='blist.do'" value ="목록으로"/>
 					
 				</td>

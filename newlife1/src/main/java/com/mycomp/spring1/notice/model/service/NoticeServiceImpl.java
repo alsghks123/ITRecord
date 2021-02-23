@@ -44,4 +44,10 @@ public class NoticeServiceImpl implements NoticeService {
 		return nDao.deleteNotice(nId);
 	}
 
+	@Override
+	public ArrayList<Notice> selectFourNotice() {
+		
+		return nDao.selectFourNotice();
+	}
+
 }
